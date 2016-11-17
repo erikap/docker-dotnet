@@ -1,0 +1,14 @@
+#!/bin/bash
+VERSION="1.0.1-sdk-projectjson"
+if [ -r ~/.config/dtn/settings ]
+then
+    . ~/.config/dtn/settings
+fi
+
+docker run --rm \
+        -it \
+        --workdir "/app" \
+        --volume /home/`whoami`/.nuget/packages:/root/.nuget/packages \
+        --volume "`pwd`:/app" \
+        microsoft/dotnet:$VERSION $@
+
