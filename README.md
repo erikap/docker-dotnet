@@ -24,4 +24,6 @@ The arguments you need to pass to the Docker run command for it to be useful are
     # Install dependencies
     dtni dotnet restore
 
+### omnisharp
 
+`omnisharp` starts an [Omnisharp Docker container](https://github.com/erikap/docker-dotnet/tree/master/omnisharp).
