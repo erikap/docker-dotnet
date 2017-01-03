@@ -5,10 +5,12 @@ then
     . ~/.config/dtn/settings
 fi
 
+project=${PWD##*/}
+
 docker run --rm \
         -it \
-        --workdir "/app" \
+        --workdir "/app/$project" \
         --volume /home/`whoami`/.nuget/packages:/root/.nuget/packages \
-        --volume "`pwd`:/app" \
+        --volume "`pwd`/..:/app" \
         microsoft/dotnet:$VERSION $@
 

@@ -5,25 +5,13 @@ then
     . ~/.config/dtn/settings
 fi
 
-while [[ $# -gt 1 ]]
-do
-    key="$1"
-case $key in
-    -s|--subproject)
-    SUBPROJECT="$2"
-    shift # past argument
-    ;;
-    *)
-    # unknown option
-    ;;
-esac
-done
+project=${PWD##*/}
 
 docker run --rm \
         -it \
-        --workdir "/app/${SUBPROJECT}" \
+        --workdir "/app/$project" \
         --volume /home/`whoami`/.nuget/packages:/root/.nuget/packages \
-        --volume "`pwd`:/app" \
+        --volume "`pwd`/..:/app" \
         -p 5000:5000 \
         -e ASPNETCORE_URLS=http://*:5000 \
         microsoft/dotnet:$VERSION dotnet run $@
