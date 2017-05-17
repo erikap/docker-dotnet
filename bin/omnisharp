@@ -1,7 +1,0 @@
-#!/bin/bash
-VERSION="latest"
-
-docker run --rm \
-        -p 2000:2000 \
-        -v "`pwd`:/app" \
-        erikap/omnisharp-server:$VERSION
