@@ -12,7 +12,7 @@ docker run --rm \
         --workdir "/app/$project" \
         --volume /home/`whoami`/.nuget/packages:/root/.nuget/packages \
         --volume "`pwd`/..:/app" \
-        -p 5000:5000 \
+        -p $1:5000 \
         -e ASPNETCORE_URLS=http://*:5000 \
-        microsoft/dotnet:$VERSION dotnet run $@
+        microsoft/dotnet:$VERSION dotnet run
 

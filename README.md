@@ -10,12 +10,10 @@ The arguments you need to pass to the Docker run command for it to be useful are
 
 ### dtns
 
-`dtns` launches your application
+`dtns 5000` launches your application and exposes it on port 5000
 
     # No nonsense application
-    dtns
-    # Application in a subfolder
-    dtns -s My.Sub.Application
+    dtns 5000
 
 ### dtni
 
